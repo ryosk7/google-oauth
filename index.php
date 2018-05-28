@@ -20,5 +20,5 @@ if (!empty($_GET['error'])) {
     ]);
     $_SESSION['token'] = serialize($token);
     // Optional: Now you have a token you can look up a users profile data
-    header('Location: /user.php');
+    header('Location: /google-oauth/user.php');
 }
