@@ -5,7 +5,11 @@ if (!empty($_GET['error'])) {
     exit('Got error: ' . htmlspecialchars($_GET['error'], ENT_QUOTES, 'UTF-8'));
 } elseif (empty($_GET['code'])) {
     // If we don't have an authorization code then get one
-    $authUrl = $provider->getAuthorizationUrl();
+    $authUrl = $provider->getAuthorizationUrl([
+      // 'scope' => [
+      //   'youtube'
+      // ]
+    ]);
     $_SESSION['oauth2state'] = $provider->getState();
     header('Location: ' . $authUrl);
     exit;

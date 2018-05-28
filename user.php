@@ -4,6 +4,7 @@ if (!empty($_SESSION['token'])) {
     $token = unserialize($_SESSION['token']);
 }
 if (empty($token)) {
+    // topページ
     header('Location: /');
     exit;
 }
